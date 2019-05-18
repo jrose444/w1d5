@@ -33,6 +33,24 @@ class PolyTreeNode
     not_child.parent=nil
   end
 
+  def dfs(target_value)
+
+    # base cases
+    return value if value == target_value
+    return nil if children.empty?
+    
+    # inductive step
+    debugger
+    dfs_memo = []
+
+    children.each do |child|
+
+      dfs_memo << child.dfs(target_value) #if target_value == child.value
+
+    end
+      return nil
+  end
+
   def inspect
     "value = #{self.value}, parent = #{self.parent}, children = #{self.children}"
   end
